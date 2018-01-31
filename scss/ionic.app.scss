@@ -1,0 +1,829 @@
+    /*
+To customize the look and feel of Ionic, you can override the variables
+in ionic's _variables.scss file.
+
+For example, you might change some of the default colors:
+
+$light:                           #fff !default;
+$stable:                          #f8f8f8 !default;
+$positive:                        #387ef5 !default;
+$calm:                            #11c1f3 !default;
+$balanced:                        #33cd5f !default;
+$energized:                       #ffc900 !default;
+$assertive:                       #ef473a !default;
+$royal:                           #886aea !default;
+$dark:                            #444 !default;
+*/
+    
+    $balanced: green !default; // The path for our ionicons font files, relative to the built CSS in www/css
+    $ionicons-font-path: "../lib/ionic/fonts" !default; // Include all of Ionic
+    @import "www/lib/ionic/scss/ionic";
+    .bgImg {
+        background-image: url(../img/bg-added.jpg);
+        width: auto;
+        height: auto;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center right;
+    }
+    
+    .mar5 {
+        margin-top: 5%;
+    }
+    
+    .centerDiv {
+        height: 100vh;
+        position: relative;
+    }
+    
+    .centerRow {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        left: 50%;
+    }
+    
+    .buttonpos {
+        // position: absolute;
+        // bottom: 1%;
+        // right: 1%;
+        // width: 50%;
+        // display: block;
+        margin: 20px 45px;
+        button {
+            background: transparent!important;
+        }
+        i {
+            font-size: 40px;
+            color: red;
+        }
+    }
+    
+    .cardimg1 {
+        width: 80%;
+        margin: 0 auto;
+        img {
+            width: 100%;
+        }
+    }
+    
+    .cardimg {
+        margin: 30% auto;
+        width: 60%;
+        img {
+            width: 100%;
+        }
+    }
+    
+    .table-border {
+        border: 3px solid #fff; // height: 180px;
+        // width: 180px;
+        margin: 10px auto;
+        background-color: transparent;
+        display: table;
+        width: 100%;
+        height: 200px;
+        opacity: 0.4;
+    }
+    
+    .table-border {
+        border: 3px solid #fff;
+        height: 100px;
+        margin: 10px auto!important;
+        background-color: transparent!important;
+        display: table!important;
+    }
+    
+    .platform-ipad .table-border {
+        height: 180px;
+        width: 180px;
+    }
+    
+    .dis-cell {
+        display: table-cell;
+        vertical-align: middle;
+        h2 {
+            text-align: center;
+            color: #fff !important;
+            font-size: 25px!important;
+        } // &:hover {
+        //     background-color: red;
+        // }
+        // &:active {
+        //     background-color: red;
+        // }
+        // &:focus {
+        //     background-color: red;
+        // }
+    }
+    
+    .platform-ios .dis-cell {
+        h2 {
+            font-size: 20px!important;
+        }
+    }
+    
+    .platform-android .dis-cell {
+        h2 {
+            font-size: 20px!important;
+        }
+    }
+    
+    .mar-t {
+        margin-top: 20%;
+    } // .platform-ios .btn-start {
+    //     font-size: 20px;
+    // }
+    // .platform-ipad .btn-start {
+    //     padding: 10px 30px;
+    //     font-size: 25px;
+    // }
+    .removedpopup {
+        h3 {
+            img {
+                max-width: 35px;
+                max-height: 35px;
+                font-size: 20px!important;
+            }
+        }
+        .popup-title {
+            font-size: 20px;
+            padding: 0px 0px!important;
+        }
+        .popup {
+            border-radius: 5px;
+            width: 250px;
+        }
+        .popup-body {
+            background: white;
+            color: #223c4d;
+            text-align: center;
+            font-weight: 600;
+            padding: 10px 10px;
+            font-size: 20px;
+            h4 {
+                margin: 0;
+                font-size: 20px;
+                color: #223c4d;
+                font-weight: 600;
+            }
+            label {
+                font-size: 20px;
+            }
+        }
+        .popup-head {
+            padding-top: 10px;
+            padding-bottom: 0;
+            border-bottom: none!important;
+            text-align: center;
+            background: white;
+            border-radius: 5px;
+            font-size: 20px!important;
+        }
+        .popup-buttons {
+            padding: 0;
+            min-height: 20px;
+            background: cornflowerblue!important;
+            border: none;
+            font-size: 20px;
+            button {
+                border: none;
+                min-height: 40px;
+                font-size: 20px;
+                background: cornflowerblue!important;
+            }
+        }
+    }
+    
+    .platform-ipad .removedpopup {
+        h3 {
+            img {
+                max-width: 35px;
+                max-height: 35px;
+                font-size: 30px!important;
+            }
+        }
+        .popup-title {
+            font-size: 30px;
+            padding: 20px 20px!important;
+        }
+        .popup {
+            border-radius: 5px;
+            width: 600px;
+        }
+        .popup-body {
+            background: white;
+            color: #223c4d;
+            text-align: center;
+            font-weight: 600;
+            padding: 30px 30px;
+            font-size: 30px;
+            h4 {
+                margin: 0;
+                font-size: 250px;
+                color: #223c4d;
+                font-weight: 600;
+            }
+            label {
+                font-size: 25px;
+            }
+        }
+        .popup-head {
+            padding-top: 20px;
+            padding-bottom: 0;
+            border-bottom: none!important;
+            text-align: center;
+            background: white;
+            border-radius: 5px;
+            font-size: 30px!important;
+        }
+        .popup-buttons {
+            padding: 0;
+            min-height: 40px;
+            background: cornflowerblue!important;
+            border: none;
+            font-size: 30px;
+            button {
+                border: none;
+                min-height: 60px;
+                font-size: 25px;
+                background: cornflowerblue!important;
+            }
+        }
+    } // .players {
+    //     h2 {
+    //         color: white;
+    //         margin-bottom: 20px!important;
+    //         margin: 0px;
+    //         font-size: 20px;
+    //     }
+    // }
+    .players {
+        min-height: 180px;
+        border: 3px solid #387ef5;
+    }
+    
+    .playersimgbor {
+        border: 10px solid rgba(255, 255, 255, 0.12);
+    }
+    
+    .selected {
+        border: 3px solid orangered;
+    }
+    
+    .dummydiv {
+        height: 10px;
+    }
+    
+    .rel {
+        position: relative;
+    }
+    
+    .player-fold-label,
+    .player-allin-label {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        text-transform: uppercase;
+        display: block;
+        z-index: 10;
+        text-align: center;
+        font-weight: bold;
+        padding: 4px 10px;
+        font-size: 30px;
+        letter-spacing: 2px;
+        font-weight: bold;
+        width: 100%;
+    }
+    
+    .player-allin-label {
+        background: #00c6df;
+        color: white;
+        font-size: 36px;
+    }
+    
+    .player-fold-label {
+        background: white;
+        color: $assertive;
+        border: 1px solid $assertive;
+        margin: 1px 0px;
+    }
+    
+    .platform-ipad .playerfold {
+        font-size: 26px;
+        padding: 10px 20px;
+        top: 40%;
+    }
+    
+    .cardbtn {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        button {
+            font-size: 20px;
+            padding: 0px 20px;
+            margin-top: 30px;
+            width: 100%;
+        }
+    }
+    
+    .platform-ipad .cardbtn {
+        button {
+            font-size: 30px;
+            padding: 10px 30px;
+            margin-top: 30px;
+            width: 100%;
+        }
+    }
+    
+    .card1-top {
+        top: 36%;
+        left: 30%;
+    }
+    
+    .platform-ipad .card1-top {
+        top: 44%;
+        left: 30%;
+    }
+    
+    .card2-top {
+        top: 36%;
+        left: 80%;
+    }
+    
+    .platform-ipad .card2-top {
+        top: 44%;
+        right: 2%;
+    }
+    
+    .back-color {
+        background-color: rgba(248, 248, 248, 0.7) !important;
+    }
+    
+    .blurEffect {
+        opacity: 0.5;
+    }
+    
+    .backgroundcl {
+        background: #215767 !important;
+        opacity: 1.0;
+    }
+    
+    .platform-ipad .player-select {
+        width: 50%;
+        display: block;
+        margin: 20px 45px;
+        .input-label {
+            font-size: 24px!important;
+            color: white!important;
+        }
+        .item {
+            background-color: transparent!important;
+            color: white!important;
+            font-size: 16px!important;
+        }
+        .item-select select {
+            font-size: 24px!important;
+        }
+    }
+    
+    .player-select {
+        width: 60%;
+        display: block;
+        margin: 20px 45px;
+        .input-label {
+            font-size: 16px!important;
+            color: white!important;
+        }
+        .item {
+            background-color: transparent!important;
+            color: white!important;
+            font-size: 16px!important;
+        }
+        .item-select select {
+            font-size: 16px!important;
+            border-radius: 0px!important;
+            direction: ltr!important;
+        }
+    }
+    
+    .player-fold {
+        opacity: 0.25;
+    }
+    
+    .not-active {
+        opacity: 0.25;
+    }
+    
+    img.player-dealer {
+        width: 50px;
+        position: absolute;
+        left: 10px;
+        top: 20px;
+    }
+    
+    @media only screen and (max-width:800px) and (min-width:1280px) {
+        .table-border {
+            border: 3px solid #fff; // height: 180px;
+            // width: 180px;
+            margin: 10px auto;
+            background-color: transparent;
+            display: table;
+            width: 100%;
+            height: 200px;
+            opacity: 0.4;
+        }
+    }
+    
+    .users1Card {
+        width: 50%;
+        display: block;
+        margin: 0 auto;
+        max-width: 200px
+    }
+    
+    .users2Card {
+        width: 50%;
+        display: block;
+        margin: 0 auto;
+        max-width: 200px
+    }
+    
+    .users2CardImg {
+        width: 100%;
+    }
+    
+    .winnersHead {
+        text-align: center;
+        margin-top: 20px!important;
+        font-size: 20px;
+        padding-bottom: 15px;
+    }
+    
+    .winner {
+        width: 40%;
+        display: block;
+        margin: 0 auto;
+        img {
+            width: 100%;
+        }
+    }
+    
+    .winnerName {
+        font-size: 30px;
+    }
+    
+    .platform-ipad .winnerName {
+        font-size: 60px!important;
+    }
+    
+    .platform-ipad .winnerMsg {
+        color: red;
+        font-size: 50px;
+    }
+    
+    .winnerMsg {
+        font-size: 20px;
+        color: red;
+    }
+    
+    .marb-30 {
+        margin-bottom: 30px;
+    }
+    
+    pre {
+        background: white;
+    }
+    
+    .green-velvet-bg {
+        background-image: url('../img/green-velvet.jpg');
+        background-size: cover;
+    }
+    
+    .player-ui {
+        h2 {
+            display: block;
+            padding: 25px 20px;
+            font-size: 20px;
+            background-color: white;
+            border-radius: 5px;
+            opacity: 0.3;
+            transition: all 300ms ease;
+            i {
+                font-size: 120px;
+                vertical-align: middle;
+            }
+            span {
+                display: block;
+                font-size: 45px;
+            }
+        }
+        &.player-selected h2 {
+            opacity: 1;
+            box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.52);
+        }
+    }
+    
+    .poker-list {
+        margin: 50px auto 0;
+        max-width: 800px;
+        .item {
+            border: 4px solid black;
+            border-radius: 20px;
+            background-color: #d8d8d8;
+        }
+        .input-label,
+        .item select {
+            font-size: 25px;
+            color: black;
+        }
+        .item-select select {
+            background-color: #fff;
+            width: 100%;
+            border-radius: 0;
+        }
+    }
+    
+    .button.button-poker {
+        border-color: black;
+        border-width: 4px;
+        border-radius: 20px;
+        text-transform: uppercase;
+        letter-spacing: 10px;
+        width: auto;
+        padding: 10px 50px;
+    }
+    
+    .few-pad {
+        padding: 15px;
+    }
+    
+    .p10 {
+        padding: 10px;
+    }
+    
+    .winner-section {
+        background: $royal;
+        h2,
+        h4,
+        p {
+            color: #fff;
+        }
+        .badge {
+            background: #fff !important;
+            color: $royal !important;
+        }
+    }
+    
+    .show-card {
+        p {
+            color: #000 !important;
+        }
+    }
+    
+    .item.result-item {
+        padding: 0px 20px;
+        .big-font {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+    
+    .modal-sure {
+        text-align: center;
+        padding: 55px 20px;
+    }
+    
+    .col-60 {
+        -webkit-box-flex: 0;
+        -webkit-flex: 0 0 60%;
+        -moz-box-flex: 0;
+        -moz-flex: 0 0 60%;
+        -ms-flex: 0 0 60%;
+        flex: 0 0 60%;
+        max-width: 60%;
+    }
+    
+    .col-40 {
+        -webkit-flex: 0 0 40%;
+        -moz-box-flex: 0;
+        -moz-flex: 0 0 40%;
+        -ms-flex: 0 0 40%;
+        flex: 0 0 40%;
+        max-width: 40%;
+    }
+    
+    @media (min-width: 680px) {
+        .custom-modal-page.modal {
+            height: 0px;
+        }
+    } //new scss
+    .button-positive.btn-start {
+        padding: 20px;
+        font-size: 30px;
+    }
+    
+    .playerimg {
+        h2 {
+            line-height: 1;
+            color: $positive;
+            margin-bottom: 10px!important;
+        }
+    }
+    
+    .player-turn {
+        background: #13a600;
+        border-color: #13a600;
+        h2 {
+            color: #fff;
+        }
+    }
+    
+    .player-dealer,
+    .player-raised {
+        position: absolute;
+        right: 6px;
+        border: 1px solid;
+        border-radius: 50%;
+        padding: 9px 9px;
+        color: #fff;
+        font-size: 2.2em;
+        &.checked {
+            background: $calm;
+            border: 1px $calm;
+            padding: 15px 8px;
+        }
+        &.called {
+            background: #32245e;
+            border: 1px #32245e;
+        }
+    }
+    
+    .player-dealer {
+        top: 6px;
+        background: #000187;
+        border-color: #000187;
+    }
+    
+    .player-blind {
+        padding: 12px 6px;
+        left: 5px;
+        height: 45px;
+        width: 45px;
+        background: #fff;
+        font-size: 1.5em;
+        margin: 0;
+        color: #009686;
+        border-color: #009686;
+    }
+    
+    .small-blind {
+        border-color: #673AB7;
+        color: #673AB7;
+    }
+    
+    .player-raised {
+        bottom: 52px;
+        background: $assertive;
+        border-color: $assertive;
+    }
+    
+    card.community-card {
+        max-width: 75px;
+        display: block;
+        margin: 0 auto;
+    }
+    
+    .width-in {
+        width: 680px;
+        margin: 0 auto;
+    }
+    
+    .fnt-18 {
+        font-size: 18px;
+    }
+    
+    .hidden {
+        display: none;
+    }
+    
+    .modal-action-for {
+        color: $assertive;
+        font-size: 1.2em;
+    }
+    
+    .button-custom {
+        width: 200px;
+    }
+    
+    .button.button-block,
+    .button.button-full {
+        letter-spacing: 2px;
+        padding: 10px 15px;
+        text-transform: uppercase;
+        font-weight: 600;
+        &.btn-start {
+            padding: 0px 20px;
+            margin-top: 30px;
+            min-height: 220px;
+        }
+    }
+    
+    .fnt-3em {
+        font-size: 3em;
+    }
+    
+    .btn-pad {
+        padding: 20px 15px !important;
+    }
+    
+    .m0 {
+        margin: 0;
+    }
+    
+    .low-opacity {
+        opacity: 0.5;
+    }
+    
+    .setting-input {
+        text-align: right;
+    }
+    
+    .setting-button {
+        font-size: 30px;
+        margin-bottom: 15px;
+        float: right;
+    }
+    
+    .result-item.winner-section,
+    .result-item.activated,
+    .result-item.show-card {
+        .winner-show-only {
+            display: block;
+        }
+        .non-winner-show-only {
+            display: none;
+        }
+    }
+    
+    .winner-show-only {
+        display: none;
+    }
+    
+    .non-winner-show-only {
+        display: block;
+    } // .popup-custom {
+    //     position: absolute;
+    //     bottom: 85px;
+    //     right: 0;
+    //     z-index: 5;
+    //     background: rgb(255, 255, 255);
+    //     width: 50%;
+    // }
+    .font-big {
+        font-weight: bold;
+        font-size: 1.5em !important;
+    }
+    
+    .item p.color-white {
+        color: #ffffff;
+    }
+    
+    .input-label,
+    .item-select select,
+    .fnt-24 {
+        font-size: 24px;
+    }
+    
+    .fnt-16 {
+        font-size: 16px;
+    }
+    
+    .button.button-royal {
+        border-color: transparent;
+        background-color: #1f086b;
+        color: #fff;
+    }
+    
+    .fnt-8em {
+        font-size: 8em !important;
+    }
+    
+    .fnt-22 {
+        font-size: 22px;
+    }
+    
+    .fnt4-5em {
+        font-size: 4.5em;
+    }
+    
+    span.light-grey {
+        color: #e2cf00;
+    }
+    
+    .btn-show {
+        padding: 4px 30px;
+        line-height: 1;
+        min-height: auto;
+        letter-spacing: 2px;
+    }
