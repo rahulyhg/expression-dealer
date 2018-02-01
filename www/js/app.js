@@ -38,13 +38,20 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         controller: 'WinnerCtrl'
       })
 
+
+      .state('login', {
+        url: '/login',
+        templateUrl: 'templates/login.html',
+        controller: 'LoginCtrl'
+      })
+
       .state('dealer', {
         url: '/dealer',
         templateUrl: 'templates/dealer.html',
         controller: 'DealerCtrl'
       });
     // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/table');
+    $urlRouterProvider.otherwise('/login');
   })
 
 

@@ -1,10 +1,18 @@
 myApp = angular.module('starter');
-
+// var adminurl="http://192.168.1.125:80";
 myApp.factory('apiService', function ($http, $q, $timeout) {
-
-
     return {
         // This is a demo Service for POST Method.
+        doLogin: function (data, id, callback) {
+            $http.post(adminurl + 'Dealer/login', {
+                mobile: data.mobile,
+                password: data.password,
+                tableId: data.tableId,
+                socketId: id
+            }).then(function (data) {
+                callback(data);
+            });
+        },
         callApiWithData: function (url, data, callback) {
             $http.post(adminurl + url, data).then(function (data) {
                 callback(data);
@@ -15,8 +23,16 @@ myApp.factory('apiService', function ($http, $q, $timeout) {
                 callback(data);
             });
         },
-        getAll: function (callback) {
-            $http.post(adminurl + 'Player/getAll').then(function (data) {
+        getAll: function (tableId, callback) {
+            console.log(tableId);
+            $http.post(adminurl + 'Player/getAllDetails', {
+                tableId: tableId
+            }).then(function (data) {
+                callback(data);
+            });
+        },
+        getAllTable: function (callback) {
+            $http.post(adminurl + 'Table/getAllTable').then(function (data) {
                 callback(data);
             });
         },

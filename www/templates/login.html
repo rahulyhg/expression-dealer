@@ -1,0 +1,36 @@
+<ion-view view-title="Table">
+    <div class="bar bar-header bar-positive">
+        <h1 class="title">Login</h1>
+    </div>
+    <ion-content>
+        <form name="loginForm" class="form-group" ng-submit="submitLoginForm(loginForm)">
+            <div class="login few-pad has-header">
+                <div class="list">
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Mobile</span>
+                        <input type="tel" placeholder="Mobile"  ng-model="loginForm.mobile">
+                </label>
+                    <label class="item item-input item-floating-label">
+                        <span class="input-label">Password</span>
+                        <input type="password" placeholder="Password"  ng-model="loginForm.password">
+                </label>
+                    <label class="item item-input item-select">
+                    <div class="input-label">
+                        Table
+                    </div>
+                   <select id="dealer" ng-model="loginForm.tableId">
+                        <option ng-repeat="table in tables track by $index" value="{{table._id}}">{{table.name}}</option>
+                    </select>
+                </label>
+                    <!--<label class="item item-input item-floating-label">
+                        <span class="input-label">Socket Id</span>
+                        <input type="text" placeholder="Socket Id"  ng-model="loginForm.socketIds" value={{socketIds}}>
+                </label>-->
+                    <div class="padding-vertical">
+                        <button class="button button-block button-positive fnt-22" type="submit" ng-disabled="!loginForm.mobile || !loginForm.password || !loginForm.tableId">Log In</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

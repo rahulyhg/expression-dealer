@@ -12,7 +12,7 @@
             <community ng-community-card="communityCard"></community>
           </div>
         </div>
-        <div class="row">
+        <!--<div class="row">
           <div class="col col-60">
             <div class="text-center">
               <button class="button button-assertive button-outline button-block button-small fnt-18" ng-disabled="!showRemove(0);" ng-click="removeCard(0);">Remove</button>
@@ -26,14 +26,13 @@
           <div class="col col-20">
             <div class="text-center">
               <button class="button button-assertive button-outline button-block button-small fnt-18" ng-disabled="!showRemove(6);" ng-click="removeCard(6);">Remove</button>
-
             </div>
           </div>
-        </div>
+        </div>-->
       </div>
 
 
-      <div class="row" ng-if="hasTurn" ng-show="remainingPlayers>1">
+      <!--<div class="row" ng-if="hasTurn" ng-show="remainingPlayers>1">
         <div class="col col-25 text-center">
 
           <button class="button button-dark button-block button-outline fnt-3em" ng-click="showConfirmationModal('allIn');">All In</button>
@@ -51,16 +50,16 @@
           <button class="button button-dark button-block button-outline fnt-3em">Fold</button>
 
         </div>
-      </div>
-      <div class="row" ng-if="!hasTurn" ng-show="remainingPlayers>1">
-        <div class="col col-100 text-center">
+      </div>-->
+      <div class="" ng-if="!hasTurn" ng-show="remainingPlayers>1">
+        <div class="text-center">
 
-          <button class="button button-royal button-block fnt4-5em btn-pad" ng-show="!showWinner" ng-click="randomCard();">Serve Card</button>
-          <button class="button button-royal button-block button-outline fnt4-5em btn-pad" ng-show="showWinner" ui-sref="winner">Show Winner</button>
+          <button class="button button-royal button-block fnt3-5em btn-pad" ng-show="!showWinner" ng-click="randomCard();">Serve Card</button>
+          <!--<button class="button button-royal button-block button-outline fnt3-5em btn-pad" ng-show="showWinner" ui-sref="winner">Show Winner</button>-->
 
         </div>
       </div>
-      <div class="padding-vertical">
+      <!--<div class="padding-vertical">
         <div class="row">
           <div class="col col-25 text-center">
           </div>
@@ -71,10 +70,9 @@
           </div>
           <div class="col col-25 text-center" ng-click="showConfirmationModal('undo');">
             <button class="button button-assertive button-block  button-outline fnt-3em">Undo</button>
-
           </div>
         </div>
-      </div>
+      </div>-->
 
 
     </div>

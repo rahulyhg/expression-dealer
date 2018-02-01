@@ -259,7 +259,7 @@ $dark:                            #444 !default;
     //     }
     // }
     .players {
-        min-height: 180px;
+        min-height: 100px;
         border: 3px solid #387ef5;
     }
     
@@ -645,9 +645,11 @@ $dark:                            #444 !default;
         right: 6px;
         border: 1px solid;
         border-radius: 50%;
-        padding: 9px 9px;
+        height: 25px;
+        width: 25px;
+        padding: 2px 0px;
         color: #fff;
-        font-size: 2.2em;
+        font-size: 14px;
         &.checked {
             background: $calm;
             border: 1px $calm;
@@ -666,12 +668,9 @@ $dark:                            #444 !default;
     }
     
     .player-blind {
-        padding: 12px 6px;
+        padding: 2px 0px;
         left: 5px;
-        height: 45px;
-        width: 45px;
         background: #fff;
-        font-size: 1.5em;
         margin: 0;
         color: #009686;
         border-color: #009686;
@@ -731,10 +730,6 @@ $dark:                            #444 !default;
     
     .fnt-3em {
         font-size: 3em;
-    }
-    
-    .btn-pad {
-        padding: 20px 15px !important;
     }
     
     .m0 {
@@ -805,16 +800,16 @@ $dark:                            #444 !default;
         color: #fff;
     }
     
-    .fnt-8em {
-        font-size: 8em !important;
+    .fnt-4em {
+        font-size: 4em !important;
     }
     
     .fnt-22 {
         font-size: 22px;
     }
     
-    .fnt4-5em {
-        font-size: 4.5em;
+    .fnt3-5em {
+        font-size: 3.5em;
     }
     
     span.light-grey {
@@ -826,4 +821,16 @@ $dark:                            #444 !default;
         line-height: 1;
         min-height: auto;
         letter-spacing: 2px;
+    }
+    
+    //login
+    .login {
+        height: calc(100vh - 44px);
+        position: relative;
+        .list {
+            position: relative;
+            width: 100%;
+            top: 30%;
+            transform: translateY(-30%);
+        }
     }
