@@ -85,12 +85,12 @@ angular.module('starter.controllers', [])
 
   updateSocketFunction = function (data) {
     console.log(data);
-    // $scope.communityCards = data.communityCards;
-    // $scope.playersChunk = _.chunk(data.playerCards, 8);
-    // $scope.extra = data.extra;
-    // $scope.hasTurn = data.hasTurn;
-    // $scope.isCheck = data.isCheck;
-    // $scope.showWinner = data.showWinner;
+    $scope.communityCards = data.communityCards;
+    $scope.playersChunk = _.chunk(data.playerCards, 8);
+    $scope.extra = data.extra;
+    $scope.hasTurn = data.hasTurn;
+    $scope.isCheck = data.isCheck;
+    $scope.showWinner = data.showWinner;
     $scope.remainingPlayers = _.filter(data.playerCards, function (n) {
       return (n.isActive && !n.isFold);
     }).length;
@@ -105,7 +105,13 @@ angular.module('starter.controllers', [])
     var tableId = $.jStorage.get("tableId");
     console.log(tableId);
     apiService.getAll(tableId, function (data) {
-      console.log(data);
+      console.log(data.data.data);
+      $scope.communityCards = data.data.data.communityCards;
+      $scope.playersChunk = _.chunk(data.data.data.players, 8);
+      $scope.extra = data.extra;
+      $scope.hasTurn = data.hasTurn;
+      $scope.isCheck = data.isCheck;
+      $scope.showWinner = data.showWinner;
     });
   };
 
