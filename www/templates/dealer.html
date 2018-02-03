@@ -1,8 +1,8 @@
 <ion-view view-title="Dealer">
   <ion-content>
     <div class="centerDiv">
-      <div class="row" ng-repeat="players in playersChunk">
-        <div class="col" ng-repeat="player in players" ng-if="player">
+      <div class="row">
+        <div class="col col-11" ng-repeat="player in playersChunk" ng-if="player">
           <player ng-player="player"></player>
         </div>
       </div>

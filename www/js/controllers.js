@@ -85,8 +85,8 @@ angular.module('starter.controllers', [])
 
   updateSocketFunction = function (data) {
     console.log(data);
-    $scope.communityCards = data.communityCards;
-    $scope.playersChunk = _.chunk(data.playerCards, 8);
+    $scope.communityCards = data.data.communityCards;
+    $scope.playersChunk = data.data.communityCards;
     $scope.extra = data.extra;
     $scope.hasTurn = data.hasTurn;
     $scope.isCheck = data.isCheck;
@@ -97,8 +97,29 @@ angular.module('starter.controllers', [])
     console.log($scope.remainingPlayers);
     $scope.$apply();
   };
-
+  seatSelectionSocketFunction = function (data) {
+    console.log("seatSelection",data.data);
+    $scope.communityCards = data.data.communityCards;
+    $scope.playersChunk = data.data.players;
+    $scope.extra = data.extra;
+    $scope.hasTurn = data.hasTurn;
+    $scope.isCheck = data.isCheck;
+    $scope.showWinner = data.showWinner;
+    $scope.$apply();
+  }
+  newGameSocketFunction = function (data) {
+    console.log("newGame", data);
+    $scope.communityCards = data.data.communityCards;
+    $scope.playersChunk = data.data.players;
+    $scope.extra = data.extra;
+    $scope.hasTurn = data.hasTurn;
+    $scope.isCheck = data.isCheck;
+    $scope.showWinner = data.showWinner;
+  }
   io.socket.on("Update", updateSocketFunction);
+  io.socket.on("seatSelection", seatSelectionSocketFunction);
+  io.socket.on("newGame", newGameSocketFunction);
+
 
   // $scope.pageChange = function () {};
   $scope.updatePlayers = function (tableId) {
@@ -107,7 +128,7 @@ angular.module('starter.controllers', [])
     apiService.getAll(tableId, function (data) {
       console.log(data.data.data);
       $scope.communityCards = data.data.data.communityCards;
-      $scope.playersChunk = _.chunk(data.data.data.players, 8);
+      $scope.playersChunk = data.data.data.players;
       $scope.extra = data.extra;
       $scope.hasTurn = data.hasTurn;
       $scope.isCheck = data.isCheck;
