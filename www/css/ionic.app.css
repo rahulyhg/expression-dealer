@@ -10308,8 +10308,7 @@ pre {
   .player-dealer.checked,
   .player-raised.checked {
     background: #11c1f3;
-    border: 1px #11c1f3;
-    padding: 15px 8px; }
+    border: 1px #11c1f3; }
   .player-dealer.called,
   .player-raised.called {
     background: #32245e;

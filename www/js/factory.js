@@ -1,5 +1,7 @@
 myApp = angular.module('starter');
-// var adminurl="http://192.168.1.125:80";
+var adminUUU = "http://192.168.1.125:80"
+var adminurl = adminUUU + '/api/';
+io.sails.url = adminUUU;
 myApp.factory('apiService', function ($http, $q, $timeout) {
     return {
         // This is a demo Service for POST Method.
@@ -9,6 +11,14 @@ myApp.factory('apiService', function ($http, $q, $timeout) {
                 password: data.password,
                 tableId: data.tableId,
                 socketId: id
+            }).then(function (data) {
+                callback(data);
+            });
+        },
+        connectSocket: function (accessToken, socketIds, callback) {
+            $http.post(adminurl + 'Dealer/connectSocket', {
+                accessToken: accessToken,
+                socketId: socketIds
             }).then(function (data) {
                 callback(data);
             });

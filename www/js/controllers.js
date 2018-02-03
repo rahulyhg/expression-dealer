@@ -14,14 +14,15 @@ angular.module('starter.controllers', [])
     $scope.socketId = function () {
       io.socket.on('connect', function (socket) {
         $scope.socketIds = io.socket._raw.id;
+        console.log($scope.socketIds);
       });
     }
     $scope.socketId();
     $scope.submitLoginForm = function (data) {
       var id = $scope.socketIds;
-      // console.log(data.tableId);
       $.jStorage.set("tableId", data.tableId);
       apiService.doLogin(data, id, function (data) {
+        console.log(data);
         $scope.accessToken = data.data.data.accessToken[0];
         if ($scope.accessToken) {
           $.jStorage.set("dealerProfile", data);
@@ -32,6 +33,7 @@ angular.module('starter.controllers', [])
     };
     $scope.tableId = $.jStorage.get("tableId");
     console.log($scope.tableId);
+    $.jStorage.flush();
   })
   .controller('HomeCtrl', function ($scope, $stateParams, $ionicPopup, $state) {
     $scope.youlose = function () {
@@ -76,21 +78,28 @@ angular.module('starter.controllers', [])
   })
 
 .controller('DealerCtrl', function ($scope, $stateParams, apiService, $state, $timeout, $ionicModal) {
-  io.socket.on("ShowWinner", function (data) {
-    console.log("Winner", data);
-  });
   $scope.randomCard = function () {
     apiService.randomCard();
   };
+  $scope.socketId = function () {
+    io.socket.on('connect', function (socket) {
+      var socketIds = io.socket._raw.id;
+      $scope.profile = $.jStorage.get("dealerProfile");
+      var accessToken = $scope.profile.data.data.accessToken[0];
+      apiService.connectSocket(accessToken, socketIds, function (data) {
+        console.log(data);
+      });
+    });
+  }
+  $scope.socketId();
 
   updateSocketFunction = function (data) {
     console.log(data);
     $scope.communityCards = data.data.communityCards;
-    $scope.playersChunk = data.data.communityCards;
+    $scope.playersChunk = data.data.players;
     $scope.extra = data.extra;
     $scope.hasTurn = data.hasTurn;
     $scope.isCheck = data.isCheck;
-    $scope.showWinner = data.showWinner;
     $scope.remainingPlayers = _.filter(data.playerCards, function (n) {
       return (n.isActive && !n.isFold);
     }).length;
@@ -98,14 +107,17 @@ angular.module('starter.controllers', [])
     $scope.$apply();
   };
   seatSelectionSocketFunction = function (data) {
-    console.log("seatSelection",data.data);
+    console.log("seatSelection", data.data);
     $scope.communityCards = data.data.communityCards;
     $scope.playersChunk = data.data.players;
     $scope.extra = data.extra;
     $scope.hasTurn = data.hasTurn;
     $scope.isCheck = data.isCheck;
-    $scope.showWinner = data.showWinner;
     $scope.$apply();
+    $scope.remainingPlayers = _.filter(data.playerCards, function (n) {
+      return (n.isActive && !n.isFold);
+    }).length;
+    console.log($scope.remainingPlayers);
   }
   newGameSocketFunction = function (data) {
     console.log("newGame", data);
@@ -114,11 +126,18 @@ angular.module('starter.controllers', [])
     $scope.extra = data.extra;
     $scope.hasTurn = data.hasTurn;
     $scope.isCheck = data.isCheck;
-    $scope.showWinner = data.showWinner;
+    $scope.$apply();
+  }
+  
+  showWinnerSocketFunction = function (data) {
+    state.go(winner);
+     console.log("Winner", data);
   }
   io.socket.on("Update", updateSocketFunction);
   io.socket.on("seatSelection", seatSelectionSocketFunction);
   io.socket.on("newGame", newGameSocketFunction);
+  io.socket.on("showWinner", showWinnerSocketFunction);
+
 
 
   // $scope.pageChange = function () {};
@@ -132,10 +151,12 @@ angular.module('starter.controllers', [])
       $scope.extra = data.extra;
       $scope.hasTurn = data.hasTurn;
       $scope.isCheck = data.isCheck;
-      $scope.showWinner = data.showWinner;
+      $scope.remainingPlayers = _.filter(data.data.data.players, function (n) {
+        return (n.isActive && !n.isFold);
+      }).length;
+      console.log($scope.remainingPlayers);
     });
   };
-
   $scope.updatePlayers();
   $scope.showCards = function () {
     apiService.revealCards(function (data) {});
