@@ -52,9 +52,8 @@
 
         </div>
       </div>-->
-      <div class="" ng-if="!hasTurn" ng-show="remainingPlayers>1">
+      <div class="padding" ng-if="!hasTurn" ng-show="remainingPlayers>1 && tableStatus.status == 'beforeStart' ||  communityCards[0].serve">
         <div class="text-center">
-
           <button class="button button-royal button-block fnt3-5em btn-pad" ng-show="!showWinner" ng-click="randomCard();">Serve Card</button>
           <!--<button class="button button-royal button-block button-outline fnt3-5em btn-pad" ng-show="showWinner" ui-sref="winner">Show Winner</button>-->
 

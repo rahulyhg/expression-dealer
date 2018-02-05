@@ -14,7 +14,7 @@ angular.module('starter.controllers', [])
     $scope.socketId = function () {
       io.socket.on('connect', function (socket) {
         $scope.socketIds = io.socket._raw.id;
-        console.log($scope.socketIds);
+        // console.log($scope.socketIds);
       });
     }
     $scope.socketId();
@@ -22,17 +22,17 @@ angular.module('starter.controllers', [])
       var id = $scope.socketIds;
       $.jStorage.set("tableId", data.tableId);
       apiService.doLogin(data, id, function (data) {
-        console.log(data);
+        // console.log(data);
         $scope.accessToken = data.data.data.accessToken[0];
         if ($scope.accessToken) {
           $.jStorage.set("dealerProfile", data);
-          console.log(data);
+          // console.log(data);
           $state.go("dealer");
         }
       });
     };
     $scope.tableId = $.jStorage.get("tableId");
-    console.log($scope.tableId);
+    // console.log($scope.tableId);
     $.jStorage.flush();
   })
   .controller('HomeCtrl', function ($scope, $stateParams, $ionicPopup, $state) {
@@ -87,51 +87,50 @@ angular.module('starter.controllers', [])
       $scope.profile = $.jStorage.get("dealerProfile");
       var accessToken = $scope.profile.data.data.accessToken[0];
       apiService.connectSocket(accessToken, socketIds, function (data) {
-        console.log(data);
       });
     });
   }
   $scope.socketId();
 
   updateSocketFunction = function (data) {
-    console.log(data);
+    $scope.tableStatus = data.data.table;
     $scope.communityCards = data.data.communityCards;
     $scope.playersChunk = data.data.players;
     $scope.extra = data.extra;
     $scope.hasTurn = data.hasTurn;
     $scope.isCheck = data.isCheck;
-    $scope.remainingPlayers = _.filter(data.playerCards, function (n) {
+    $scope.remainingPlayers = _.filter(data.data.players, function (n) {
       return (n.isActive && !n.isFold);
     }).length;
-    console.log($scope.remainingPlayers);
     $scope.$apply();
   };
   seatSelectionSocketFunction = function (data) {
-    console.log("seatSelection", data.data);
+    // console.log("seatSelection", data.data);
     $scope.communityCards = data.data.communityCards;
     $scope.playersChunk = data.data.players;
+    $scope.tableStatus = data.data.table;
     $scope.extra = data.extra;
     $scope.hasTurn = data.hasTurn;
     $scope.isCheck = data.isCheck;
-    $scope.$apply();
-    $scope.remainingPlayers = _.filter(data.playerCards, function (n) {
+    $scope.remainingPlayers = _.filter(data.data.players, function (n) {
       return (n.isActive && !n.isFold);
     }).length;
-    console.log($scope.remainingPlayers);
+    $scope.$apply();
   }
   newGameSocketFunction = function (data) {
     console.log("newGame", data);
     $scope.communityCards = data.data.communityCards;
     $scope.playersChunk = data.data.players;
+    $scope.tableStatus = data.data.table;
     $scope.extra = data.extra;
     $scope.hasTurn = data.hasTurn;
     $scope.isCheck = data.isCheck;
     $scope.$apply();
   }
-  
+
   showWinnerSocketFunction = function (data) {
     state.go(winner);
-     console.log("Winner", data);
+    console.log("Winner", data);
   }
   io.socket.on("Update", updateSocketFunction);
   io.socket.on("seatSelection", seatSelectionSocketFunction);
@@ -143,9 +142,9 @@ angular.module('starter.controllers', [])
   // $scope.pageChange = function () {};
   $scope.updatePlayers = function (tableId) {
     var tableId = $.jStorage.get("tableId");
-    console.log(tableId);
+    // console.log(tableId);
     apiService.getAll(tableId, function (data) {
-      console.log(data.data.data);
+      // console.log(data.data.data);
       $scope.communityCards = data.data.data.communityCards;
       $scope.playersChunk = data.data.data.players;
       $scope.extra = data.extra;
@@ -154,7 +153,6 @@ angular.module('starter.controllers', [])
       $scope.remainingPlayers = _.filter(data.data.data.players, function (n) {
         return (n.isActive && !n.isFold);
       }).length;
-      console.log($scope.remainingPlayers);
     });
   };
   $scope.updatePlayers();
@@ -269,10 +267,10 @@ angular.module('starter.controllers', [])
 
   $scope.newGame();
   $scope.tableId = $.jStorage.get("tableId");
-  console.log($scope.tableId)
+  // console.log($scope.tableId)
   $scope.updatePlayers = function () {
     apiService.getAll(tableId, function (data) {
-      console.log(data);
+      // console.log(data);
     });
   };
 
@@ -335,9 +333,9 @@ angular.module('starter.controllers', [])
   };
 
   $scope.showRemoveSmallBlind = function () {
-    console.log($scope.dealer.dealerPlayer);
+    // console.log($scope.dealer.dealerPlayer);
     var nextPlayer = (parseInt($scope.dealer.dealerPlayer) + 1) % 8;
-    console.log(nextPlayer);
+    // console.log(nextPlayer);
     if ($scope.allPlayers[nextPlayer - 1].isActive === false) {
       return true;
     } else {
