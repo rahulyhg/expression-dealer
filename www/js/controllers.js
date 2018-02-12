@@ -93,43 +93,47 @@ angular.module('starter.controllers', [])
   $scope.socketId();
 
   updateSocketFunction = function (data) {
+      //  console.log("newGame", data);
     $scope.tableStatus = data.data.table;
     $scope.communityCards = data.data.communityCards;
     $scope.playersChunk = data.data.players;
     $scope.extra = data.extra;
     $scope.hasTurn = data.hasTurn;
     $scope.isCheck = data.isCheck;
+      $scope.pots = data.data.pots;
     $scope.remainingPlayers = _.filter(data.data.players, function (n) {
       return (n.isActive && !n.isFold);
     }).length;
     $scope.$apply();
   };
   seatSelectionSocketFunction = function (data) {
-    // console.log("seatSelection", data.data);
+    console.log("seatSelection", data.data);
     $scope.communityCards = data.data.communityCards;
     $scope.playersChunk = data.data.players;
     $scope.tableStatus = data.data.table;
     $scope.extra = data.extra;
     $scope.hasTurn = data.hasTurn;
     $scope.isCheck = data.isCheck;
+      $scope.pots = data.data.pots;
     $scope.remainingPlayers = _.filter(data.data.players, function (n) {
       return (n.isActive && !n.isFold);
     }).length;
     $scope.$apply();
   }
   newGameSocketFunction = function (data) {
-    console.log("newGame", data);
+    // console.log("newGame", data);
     $scope.communityCards = data.data.communityCards;
     $scope.playersChunk = data.data.players;
     $scope.tableStatus = data.data.table;
     $scope.extra = data.extra;
     $scope.hasTurn = data.hasTurn;
     $scope.isCheck = data.isCheck;
+      $scope.pots = data.data.pots;
     $scope.$apply();
   }
 
   showWinnerSocketFunction = function (data) {
-    state.go(winner);
+    $scope.pots = data.data.pots;
     console.log("Winner", data);
   }
   io.socket.on("Update", updateSocketFunction);
@@ -144,7 +148,7 @@ angular.module('starter.controllers', [])
     var tableId = $.jStorage.get("tableId");
     // console.log(tableId);
     apiService.getAll(tableId, function (data) {
-      // console.log(data.data.data);
+      console.log(data.data.data);
       $scope.communityCards = data.data.data.communityCards;
       $scope.playersChunk = data.data.data.players;
       $scope.extra = data.extra;

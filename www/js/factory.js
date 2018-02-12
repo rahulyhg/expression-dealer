@@ -1,5 +1,5 @@
 myApp = angular.module('starter');
-var adminUUU = "http://192.168.2.21:80"
+var adminUUU = "http://192.168.1.125:80"
 var adminurl = adminUUU + '/api/';
 io.sails.url = adminUUU;
 myApp.factory('apiService', function ($http, $q, $timeout) {
