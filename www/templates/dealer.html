@@ -2,7 +2,7 @@
   <ion-content>
     <div class="centerDiv">
       <div class="row">
-        <div class="col col-11" ng-repeat="player in playersChunk" ng-if="player">
+        <div class="col col-11" ng-repeat="player in playersChunk" ng-if="player" ng-click="makeDealer(player.playerNo)">
           <player ng-player="player"></player>
         </div>
       </div>
@@ -14,7 +14,7 @@
         </div>-->
         <div class="col col-11" ng-repeat="pot in pots" ng-if="pot.winner">
           <div class="winner-data button button-full button-balanced">
-            Pots: {{pot.name}} 
+            Pots: {{pot.name}}
             <span ng-repeat="winners in pot.winner" ng-if="winners.winner">Winner-Player {{winners.playerNo}}</span>
           </div>
         </div>
@@ -63,7 +63,7 @@
 
         </div>
       </div>-->
-      <div class="padding" ng-if="!hasTurn" ng-show="remainingPlayers>1 && tableStatus.status == 'beforeStart' ||  communityCards[0].serve">
+      <div class="padding-horizontal" ng-if="!hasTurn" ng-show="remainingPlayers>1 && tableStatus.status == 'beforeStart' ||  communityCards[0].serve">
         <div class="text-center">
           <button class="button button-royal button-block fnt3-5em btn-pad" ng-show="!showWinner" ng-click="randomCard();">Serve Card</button>
           <!--<button class="button button-royal button-block button-outline fnt3-5em btn-pad" ng-show="showWinner" ui-sref="winner">Show Winner</button>-->

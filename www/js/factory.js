@@ -41,6 +41,14 @@ myApp.factory('apiService', function ($http, $q, $timeout) {
                 callback(data);
             });
         },
+        makeDealerByDealer: function (tableId, playerNo, callback) {
+            $http.post(adminurl + 'Player/makeDealerByDealer', {
+                tableId: tableId,
+                playerNo: playerNo
+            }).then(function (data) {
+                callback(data);
+            });
+        },
         getAllTable: function (callback) {
             $http.post(adminurl + 'Table/getAllTable').then(function (data) {
                 callback(data);

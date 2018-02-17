@@ -10123,6 +10123,9 @@ img.player-dealer {
   left: 10px;
   top: 20px; }
 
+.custom-row {
+  padding: 2px; }
+
 @media only screen and (max-width: 800px) and (min-width: 1280px) {
   .table-border {
     border: 3px solid #fff;
@@ -10286,7 +10289,7 @@ pre {
 .playerimg h2 {
   line-height: 1;
   color: #387ef5;
-  margin-bottom: 10px !important; }
+  margin-bottom: 2px !important; }
 
 .player-turn {
   background: #13a600;
@@ -10449,3 +10452,13 @@ span.light-grey {
     width: 100%;
     top: 30%;
     transform: translateY(-30%); }
+
+.col.col-11 {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 11%;
+  -moz-box-flex: 0;
+  -moz-flex: 0 0 11%;
+  -ms-flex: 0 0 11%;
+  flex: 0 0 11%;
+  padding: 1px;
+  max-width: 11%; }
