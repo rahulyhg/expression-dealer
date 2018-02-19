@@ -20,10 +20,14 @@
         </div>
       </div>
       <!--<pre>{{pots}}</pre>-->
-      <div class="padding-vertical width-in">
+      <div class="width-in">
         <div class="row text-center">
-          <div class="col-20" ng-repeat='communityCard in communityCards track by $index' ng-if="!communityCard.isBurn">
+          <div class="col" ng-repeat='communityCard in communityCards track by $index' ng-if="!communityCard.isBurn">
             <community ng-community-card="communityCard"></community>
+          </div>
+          <div class="col col-50">
+            <iframe height="150" style="width:100%" src="https://www.youtube.com/embed/ubGguKXwv_s" frameborder="0" allow="autoplay; encrypted-media"
+              allowfullscreen></iframe>
           </div>
         </div>
         <!--<div class="row">
