@@ -22,11 +22,11 @@ angular.module('starter.controllers', [])
       var id = $scope.socketIds;
       $.jStorage.set("tableId", data.tableId);
       apiService.doLogin(data, id, function (data) {
-        // console.log(data);
+        console.log(data);
         $scope.accessToken = data.data.data.accessToken[0];
         if ($scope.accessToken) {
           $.jStorage.set("dealerProfile", data);
-          // console.log(data);
+          console.log(data);
           $state.go("dealer");
         }
       });
@@ -81,8 +81,15 @@ angular.module('starter.controllers', [])
     $scope.randomCard = function () {
       apiService.randomCard();
     };
+    $scope.logout = function () {
+      $.jStorage.flush();
+      $state.go("login");
+    };
     $scope.profile = $.jStorage.get("dealerProfile");
     var accessToken = $scope.profile.data.data.accessToken[0];
+    if (!accessToken) {
+      $state.go("login");
+    }
     $scope.socketId = function () {
       io.socket.on('connect', function (socket) {
         var socketIds = io.socket._raw.id;
@@ -97,7 +104,7 @@ angular.module('starter.controllers', [])
     }
     updateSocketFunction = function (data) {
       //  console.log("newGame", data);
-      $scope.tableStatus = data.data.table;
+      $scope.table = data.data.table;
       $scope.communityCards = data.data.communityCards;
       $scope.playersChunk = data.data.players;
       $scope.extra = data.extra;
@@ -113,7 +120,7 @@ angular.module('starter.controllers', [])
       console.log("seatSelection", data.data);
       $scope.communityCards = data.data.communityCards;
       $scope.playersChunk = data.data.players;
-      $scope.tableStatus = data.data.table;
+      $scope.table = data.data.table;
       $scope.extra = data.extra;
       $scope.hasTurn = data.hasTurn;
       $scope.isCheck = data.isCheck;
@@ -126,7 +133,7 @@ angular.module('starter.controllers', [])
     newGameSocketFunction = function (data) {
       $scope.communityCards = data.data.communityCards;
       $scope.playersChunk = data.data.players;
-      $scope.tableStatus = data.data.table;
+      $scope.table = data.data.table;
       $scope.extra = data.extra;
       $scope.hasTurn = data.hasTurn;
       $scope.isCheck = data.isCheck;
@@ -151,6 +158,7 @@ angular.module('starter.controllers', [])
         console.log(data.data.data);
         $scope.communityCards = data.data.data.communityCards;
         $scope.playersChunk = data.data.data.players;
+        $scope.table = data.data.data.table;
         $scope.extra = data.extra;
         $scope.hasTurn = data.hasTurn;
         $scope.isCheck = data.isCheck;

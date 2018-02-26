@@ -6,12 +6,7 @@
           <player ng-player="player"></player>
         </div>
       </div>
-      <div class="row">
-        <!--<div class="col col-11">
-          <div class="winner-data button button-full button-balanced activated">
-            Pots Winner
-          </div>
-        </div>-->
+      <div class="row" ng-if="pots">
         <div class="col col-11" ng-repeat="pot in pots" ng-if="pot.winner">
           <div class="winner-data button button-full button-balanced">
             Pots: {{pot.name}}
@@ -26,8 +21,8 @@
             <community ng-community-card="communityCard"></community>
           </div>
           <div class="col col-50">
-            <iframe height="150" style="width:100%" src="https://www.youtube.com/embed/ubGguKXwv_s" frameborder="0" allow="autoplay; encrypted-media"
-              allowfullscreen></iframe>
+            <div class="hello videocss " youtube code="table.youTubeUrl"></div>
+            <!-- <iframe width="100%" height="250" ng-src="http://www.youtube.com/embed/{{table.youTubeUrl}}" /> -->
           </div>
         </div>
         <!--<div class="row">
@@ -67,9 +62,16 @@
 
         </div>
       </div>-->
-      <div class="padding-horizontal" ng-if="!hasTurn" ng-show="remainingPlayers>1 && tableStatus.status == 'beforeStart' ||  communityCards[0].serve">
+      <div class="padding-horizontal" ng-if="!hasTurn" ng-show="remainingPlayers>1 && table.status == 'beforeStart' ||  communityCards[0].serve">
         <div class="text-center">
-          <button class="button button-royal button-block fnt3-5em btn-pad" ng-show="!showWinner" ng-click="randomCard();">Serve Card</button>
+          <div class="row">
+            <div class="col col-75">
+              <button class="button button-royal button-block fnt3-5em btn-pad" ng-show="!showWinner" ng-click="randomCard();">Serve Card</button>
+            </div>
+            <div class="col col-25">
+              <button class="button button-assertive button-block" ng-show="!showWinner" ng-click="logout();">Logout</button>
+            </div>
+          </div>
           <!--<button class="button button-royal button-block button-outline fnt3-5em btn-pad" ng-show="showWinner" ui-sref="winner">Show Winner</button>-->
         </div>
       </div>

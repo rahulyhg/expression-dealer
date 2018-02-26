@@ -8,6 +8,7 @@ myApp.factory('apiService', function ($http, $q, $timeout) {
         doLogin: function (data, id, callback) {
             $http.post(adminurl + 'Dealer/login', {
                 mobile: data.mobile,
+                youTubeUrl: data.link,
                 password: data.password,
                 tableId: data.tableId,
                 socketId: id

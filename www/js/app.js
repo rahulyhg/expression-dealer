@@ -38,7 +38,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         controller: 'WinnerCtrl'
       })
 
-
       .state('login', {
         url: '/login',
         templateUrl: 'templates/login.html',
@@ -53,8 +52,6 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('/login');
   })
-
-
   .directive('card', function () {
     return {
       restrict: 'E',
@@ -139,6 +136,24 @@ angular.module('starter', ['ionic', 'starter.controllers'])
             }, function (data) {});
           }
         };
+      }
+    };
+  })
+
+  .directive('youtube', function ($sce) {
+    return {
+      restrict: 'EA',
+      scope: {
+        code: '='
+      },
+      replace: true,
+      template: '<iframe id="popup-youtube-player" style="overflow:hidden;" width="100%" height="170" src="{{url}}" frameborder="0" allowscriptaccess="always"></iframe>',
+      link: function (scope) {
+        scope.$watch('code', function (newVal) {
+          if (newVal) {
+            scope.url = $sce.trustAsResourceUrl("http://www.youtube.com/embed/" + newVal + "?autoplay=1");
+          }
+        });
       }
     };
   });

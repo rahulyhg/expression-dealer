@@ -10462,3 +10462,8 @@ span.light-grey {
   flex: 0 0 11%;
   padding: 1px;
   max-width: 11%; }
+
+.button.button-block,
+.button.button-full {
+  margin-top: 0px;
+  margin-bottom: 10px; }

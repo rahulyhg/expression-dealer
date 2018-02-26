@@ -6,23 +6,27 @@
         <form name="loginForm" class="form-group" ng-submit="submitLoginForm(loginForm)">
             <div class="login few-pad has-header">
                 <div class="list">
-                    <label class="item item-input item-floating-label">
+                    <label class="item item-input">
                         <span class="input-label">Mobile</span>
-                        <input type="tel" placeholder="Mobile"  ng-model="loginForm.mobile">
-                </label>
-                    <label class="item item-input item-floating-label">
+                        <input type="tel" placeholder="Mobile" ng-model="loginForm.mobile">
+                    </label>
+                    <label class="item item-input">
                         <span class="input-label">Password</span>
-                        <input type="password" placeholder="Password"  ng-model="loginForm.password">
-                </label>
+                        <input type="password" placeholder="Password" ng-model="loginForm.password">
+                    </label>
+                    <label class="item item-input">
+                        <span class="input-label">Video Link</span>
+                        <input type="text" placeholder="Video Link" ng-model="loginForm.link">
+                    </label>
                     <label class="item item-input item-select">
-                    <div class="input-label">
-                        Table
-                    </div>
-                   <select id="dealer" ng-model="loginForm.tableId">
-                        <option ng-repeat="table in tables track by $index" value="{{table._id}}">{{table.name}}</option>
-                    </select>
-                </label>
-                    <!--<label class="item item-input item-floating-label">
+                        <div class="input-label">
+                            Table
+                        </div>
+                        <select id="dealer" ng-model="loginForm.tableId">
+                            <option ng-repeat="table in tables track by $index" value="{{table._id}}">{{table.name}}</option>
+                        </select>
+                    </label>
+                    <!--<label class="item item-input">
                         <span class="input-label">Socket Id</span>
                         <input type="text" placeholder="Socket Id"  ng-model="loginForm.socketIds" value={{socketIds}}>
                 </label>-->
