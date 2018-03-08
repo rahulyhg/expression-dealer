@@ -240,8 +240,8 @@ angular.module('starter.controllers', [])
     };
 
     // New Game
-    $scope.newGame = function () {
-      $state.go("table");
+    $scope.newGame = function (data) {
+      apiService.newGame(tableId, function (data) {});
     };
 
     // Undo
